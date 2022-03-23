@@ -5,8 +5,8 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="ion-padding">
 
-<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">PokeApp</ion-title>
@@ -15,7 +15,11 @@
 
   <div id="container">
     <ion-list >
+
       <ion-item  *ngFor="let info of data" (click)="goToDetail(info)">
+        <ion-thumbnail slot="start">
+          <img [src]="(info.pokemon)? info.pokemon.sprites.front_default : 'assets/ball-icon.png'" alt="">
+        </ion-thumbnail>
         <ion-label>
           {{info.name}}
         </ion-label>

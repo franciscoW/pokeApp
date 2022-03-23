@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
 
   data: Result[];
   nextResults: string;
+  img: string;
   constructor(
     private apiService: ApiService,
     private router: Router
@@ -34,10 +35,10 @@ export class HomePage implements OnInit {
     this.router.navigate(['/detail',{url:info.url}]);
   }
 
+
   private getResults(urlResults: string='', event: any=null){
     this.apiService.getPokeList(urlResults).subscribe(response=>{
       this.data = response.results;
-      console.log('Event',event);
       if(response.next != null){
         this.nextResults = response.next;
       }else{
