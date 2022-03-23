@@ -24,7 +24,7 @@ export class DetailComponent implements OnInit {
     console.log('URL',url);
     this.apiService.getPokeDetail(url).subscribe(response=>{
       this.pokemon = response;
-      this.img = this.pokemon.sprites.front_default;
+      this.img = this.pokemon.sprites.other['official-artwork'].front_default;
       console.log(response);
     });
   }
